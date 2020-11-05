@@ -10,17 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_04_021405) do
+ActiveRecord::Schema.define(version: 2020_11_05_021321) do
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+  end
 
   create_table "exercises", force: :cascade do |t|
     t.string "name"
     t.integer "reps"
     t.integer "sets"
-    t.integer "workoutcomponentid"
     t.integer "user_id"
     t.boolean "private"
-    t.integer "categoryid"
-    t.integer "musclegroupid"
+    t.integer "category_id"
+    t.integer "musclegroup_id"
+    t.integer "workout_exercise_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -29,15 +33,17 @@ ActiveRecord::Schema.define(version: 2020_11_04_021405) do
     t.string "password_digest"
   end
 
-  create_table "workout_components", force: :cascade do |t|
+  create_table "workout_exercises", force: :cascade do |t|
     t.integer "workout_id"
     t.integer "exercise_id"
+    t.integer "reps"
+    t.integer "sets"
   end
 
   create_table "workouts", force: :cascade do |t|
     t.string "name"
     t.integer "user_id"
-    t.integer "workoutcomponentid"
+    t.integer "workout_exercise_id"
   end
 
 end
