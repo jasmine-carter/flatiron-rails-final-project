@@ -11,7 +11,10 @@ class ExercisesController < ApplicationController
   end
 
   def create
+    binding.pry
     @exercise = Exercise.create(exercise_params)
+    @exercise.save
+    redirect_to @exercise
   end
 
   def show
@@ -26,7 +29,7 @@ class ExercisesController < ApplicationController
   private
 
   def exercise_params
-    params.require(:exercise).permit(:name, :private)
+    params.require(:exercise).permit(:name, :private, muscle_group_attributes: [:name], category_attributes: [:name])
   end
 
 end
