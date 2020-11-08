@@ -6,9 +6,12 @@ class ExercisesController < ApplicationController
 
   def new
     @exercise = Exercise.new
+    @exercise.build_category
+    @exercise.build_muscle_group
   end
 
   def create
+    @exercise = Exercise.create(exercise_params)
   end
 
   def show
