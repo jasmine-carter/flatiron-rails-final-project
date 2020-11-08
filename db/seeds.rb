@@ -7,3 +7,4 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 categories = Category.create([{name: "Cardio"}, {name: "Strength"}, {name: "Flexibility"}, {name: "Balance"} ])
+musclegroups = MuscleGroup.create([{name: "Chest"}, {name: "Back"}, {name: "Arms"}, {name: "Abdominals"}, {name: "Legs"}, {name: "Shoulders"}])
