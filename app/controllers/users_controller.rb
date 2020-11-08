@@ -18,8 +18,11 @@ class UsersController < ApplicationController
   end
 
   def show
-    #build out current user method to check if user is logged in, if not, redirect to new user view
-    @user = User.find_by(id: params[:id])
+    if !current_user
+      redirect_to controller: 'users', action: 'new' #if user is not logged in, redirect to sign up
+    else
+      @user = User.find_by(id: params[:id])
+    end
   end
 
 
