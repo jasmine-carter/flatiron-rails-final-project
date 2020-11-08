@@ -2,8 +2,16 @@
 
 <%=form_for @exercise, controller: 'exercises', action: 'create' do |f| %>
 Name: <%=f.text_field :name %> <br>
-Category: #dropdown of all categories <br>
-MuscleGroup: #dropdown of all musclegroups <br>
+Category: <%= f.fields_for :category do |c|%>
+
+  <%= c.collection_select(:name, Category.all, :name, :name,{include_blank: 'Select a Category'})%>
+<% end %>
+<br>
+
+MuscleGroup: <%= f.fields_for :muscle_group do |mg| %>
+  <%= mg.collection_select(:name, MuscleGroup.all, :name, :name, {include_blank: 'Select a MuscleGroup'}) %>
+  <% end %>
+  <br>
 Share With Others?: <%= f.check_box :private %> <br>
 <%= f.submit "Create Exercise" %>
 <% end %>
