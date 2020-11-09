@@ -1,7 +1,7 @@
 class SessionController < ApplicationController
 
   def new
-  
+
   end
 
   def create
@@ -11,6 +11,8 @@ class SessionController < ApplicationController
   end
 
   def destroy
-
+    session.clear
+    redirect_to root_path
   end
+  
 end
