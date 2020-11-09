@@ -11,13 +11,14 @@ class ExercisesController < ApplicationController
   end
 
   def create
-    binding.pry
     @exercise = Exercise.create(exercise_params)
+    @exercise.user_id = current_user.id
     @exercise.save
     redirect_to @exercise
   end
 
   def show
+    @exercise = Exercise.find_by(id: params[:id])
   end
 
   def edit

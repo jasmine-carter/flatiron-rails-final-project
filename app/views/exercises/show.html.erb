@@ -1,0 +1,10 @@
+<h1><%=@exercise.name%></h1>
+
+Exercise Category: <%=@exercise.category.name%> <br>
+Muscle Group: <%=@exercise.muscle_group.name%> <br>
+
+<% if current_user.id == @exercise.user_id%>
+  <%= link_to "Edit this Exercise", edit_exercise_path(@exercise.id) %>
+<% end %>
+
+#workouts that use this exercise
