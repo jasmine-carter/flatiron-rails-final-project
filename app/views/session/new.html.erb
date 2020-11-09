@@ -1,0 +1,11 @@
+<h1> Log In to Swolier Than Thou </h1>
+<% if flash[:notice].present? %>
+<%=flash[:notice] %> <br> <br>
+<% end %>
+
+<%= form_for @user, url: signin_path, method: :post do |f| %>
+Enter Your Name:<%=f.text_field :name %> <br>
+Enter Your Email: <%=f.text_field :email %> <br>
+Enter Your Password: <%=f.password_field :password %> <br>
+<%=f.submit "Log In" %>
+<%end %>
