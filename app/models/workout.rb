@@ -5,5 +5,6 @@ class Workout < ApplicationRecord
   has_many :comments
   has_many :users, through: :comments
   has_many :categories, through: :exercises
+  accepts_nested_attributes_for :workout_exercises
 
 end
