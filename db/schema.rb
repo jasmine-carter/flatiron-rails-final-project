@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_10_002414) do
+ActiveRecord::Schema.define(version: 2020_11_10_011122) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
@@ -22,7 +22,6 @@ ActiveRecord::Schema.define(version: 2020_11_10_002414) do
     t.boolean "private"
     t.integer "category_id"
     t.integer "muscle_group_id"
-    t.integer "workout_exercise_id"
   end
 
   create_table "muscle_groups", force: :cascade do |t|
@@ -45,7 +44,6 @@ ActiveRecord::Schema.define(version: 2020_11_10_002414) do
   create_table "workouts", force: :cascade do |t|
     t.string "name"
     t.integer "user_id"
-    t.integer "workout_exercise_id"
   end
 
 end
