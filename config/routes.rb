@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root 'static#home'
   resources :users
   resources :exercises
+  resources :workouts
 
   get '/signin', to: 'session#new'
   get '/destroy', to: 'session#destroy'
