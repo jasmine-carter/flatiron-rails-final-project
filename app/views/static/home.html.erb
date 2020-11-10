@@ -3,5 +3,12 @@
     <img style='width: 600px' src="https://t3.ftcdn.net/jpg/03/56/86/00/360_F_356860018_2d09E8amlSjh1HPdsNWcjkbBGRqGzuhs.jpg"
     </div>
     <h1 align="center">Welcome to Swolier Than Thou!</h1>
-    <p align="center"> Sign Up   Log In</p>
+    <p align="center"> <%= link_to(controller: 'session', action: 'new', method: "new"){'Log In'}%></p>
+      <p align="center"><%= link_to(controller: 'users', action: 'new', method: "new"){'Sign Up'} %></p>
 </div>
+<br>
+<br>
+<div style='width: 600px;margin:auto'>
+  <h2 align="center">About</h2>
+  <p>Feeling uninspired with your workouts lately? Or Maybe you've come up with a killer workout that you want to share with friends? Sign up to create exercises and workouts for yourself or to share with your friends. Or if you dare, try a workout someone else created, and leave feedback on it. </p>
+  </div>
