@@ -30,7 +30,11 @@ class WorkoutsController < ApplicationController
   end
 
   def edit
-    #only allow owner of workout to edit
+    @workout = Workout.find_by(id: params[:id])
+    if current_user.id != @workout.user_id
+      flash[:message] = "You can only edit workouts you've created"
+      redirect_to workouts_path
+    end
   end
 
   def delete
