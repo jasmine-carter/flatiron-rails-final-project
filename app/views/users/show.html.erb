@@ -1,20 +1,31 @@
 <h1> Welcome <%=@user.name%>! </h1>
-
+<div>
 <% if current_user.exercises.count == 0 %>
   <p> It looks like you haven't created any exercises yet. Why don't you create one?</p>
   <% else %>
-  <p>Here are your Exercises</p>
+  <h5>Your Exercises</h5>
   <% Exercise.all.each do |e| %>
       <% if e.user_id == current_user.id %>
         <li><%=e.name %></li>
         <%end%>
       <% end %>
 <% end %>
-#show workouts user has made
-  if none, link to create workout form
+</div>
+<div>
+<% if current_user.workouts.count == 0 %> <!-- %=create class method to simplify workout.count logic % -->
+  <p> You haven't created any workouts yet. <%=link_to "Create one here", new_workout_path%> </p>
+<% else %>
+  <h5> Your Workouts </h5>
+  <% Workout.all.each do |w| %>
+    <% if w.user_id == current_user.id %>
+      <li><%=link_to "#{w.name}", workout_path(w)%></li>
+      <%end%>
+    <%end%>
+  <%end%>
+</div>
 
-#link to show all Workouts
-
-#link to show all exercises 
+<br>
+<br>
+<%= link_to "See All Workouts", workouts_path %> <br>
 <%= link_to "See All Exercises", exercises_path%> <br>
 <%= link_to(controller: 'session', action: 'destroy', method: "delete"){'Log Out'}%>
