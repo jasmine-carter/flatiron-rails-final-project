@@ -8,7 +8,9 @@ Muscle Group: <%=@exercise.muscle_group.name%> <br>
   <%= link_to "Edit this Exercise", edit_exercise_path(@exercise.id) %>
 <% else %>
   <p>This exercise was created by <%=@exercise.user.name%> </p>
+
 <% end %>
-
-
-#workouts that use this exercise
+<h2><%=@exercise.workouts.count%> Workouts Feature this Exercise </h2>
+<% @exercise.workouts.each do |w| %>
+  <li><%= link_to w.name, workout_path(w) %></li>
+<% end %>
