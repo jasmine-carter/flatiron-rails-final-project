@@ -1,7 +1,11 @@
 <h1>All Exercises</h1>
 
 <ul>
-<%= @exercises.each do |exercise| %>
+<% @exercises.each do |exercise| %>
 <li><%= link_to "#{exercise.name}", exercise_path(exercise)%> </li>
 <% end %>
 </ul>
+<div>
+  <p>notes</p>
+  <p>add ability to search for exercises by categories on this view </p>
+  </div>
