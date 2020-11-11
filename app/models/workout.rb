@@ -7,4 +7,9 @@ class Workout < ApplicationRecord
   has_many :categories, through: :exercises
   accepts_nested_attributes_for :workout_exercises
 
+
+  def workout_user
+    User.find_by(id: self.user_id).name
+  end
+
 end
