@@ -5,6 +5,9 @@
     <h1 align="center">Welcome to Swolier Than Thou!</h1>
     <p align="center"> <%= link_to(controller: 'session', action: 'new', method: "new"){'Log In'}%></p>
       <p align="center"><%= link_to(controller: 'users', action: 'new', method: "new"){'Sign Up'} %></p>
+      <%if current_user%>
+        <p align="center"> <%=link_to "View your Profile", user_path(current_user.id) %></p>
+      <% end %>
 </div>
 <br>
 <br>
