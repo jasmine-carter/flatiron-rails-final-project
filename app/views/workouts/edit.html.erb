@@ -1,0 +1,23 @@
+<h1> Edit <%=@workout.name%> Workout </h1>
+
+<div>
+  <p>notes</p>
+  <p>#nested form to edit workout exercises on this workout
+  #allow to add or remove workout exercisess on this workout </p>
+</div>
+
+<%= form_for @workout do |f| %>
+
+Edit Workout Name: <%= f.text_field :name %>
+<br>
+<h4> Edit the Exercises in this Workout? </h4>
+  <%=f.fields_for :workout_exercises do |we| %>
+    <li>Change Exercise: <%= we.collection_select(:exercise_id, Exercise.all, :id, :name)%>
+    Edit Rep Count: <%= we.text_field :reps %>
+    Edit Set Count: <%= we.text_field :sets %>
+    <%= "link_to delete workout excerise?" %>
+    <% end %>
+  </li>
+  <br>
+<%=f.submit "Update Workout" %>
+<% end %>

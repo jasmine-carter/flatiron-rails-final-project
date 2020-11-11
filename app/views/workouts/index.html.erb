@@ -4,6 +4,6 @@
 <%end%>
 <ul>
 <% @workouts.each do |w| %>
-  <li><%=link_to "#{w.name}", workout_path(w)%></li>
+  <li><%=link_to "#{w.name} - created by #{w.workout_user}", workout_path(w)%></li>
 <% end %>
 </ul>
