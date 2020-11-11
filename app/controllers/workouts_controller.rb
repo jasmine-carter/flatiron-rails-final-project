@@ -15,12 +15,13 @@ class WorkoutsController < ApplicationController
     #create logic that assignes @workout.user_id == current_user.id
     #create logic that only users that are logged in can create workouts
     @workout = Workout.create(workout_params)
+    @workout.user_id = current_user.id
+    @workout.save
     params[:workout][:workout_exercises_attributes].values.each do |we|
       we = WorkoutExercise.create(exercise_id: we["exercise_id"], workout_id: @workout.id, reps: we["reps"], sets: we["sets"])
+      we.errors
       we.save
     end
-    @workout.user_id = current_user
-    @workout.save
     redirect_to @workout
   end
 
