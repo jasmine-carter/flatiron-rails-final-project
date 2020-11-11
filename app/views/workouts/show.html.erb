@@ -9,5 +9,11 @@
       </li>
 </ol>
 <% if current_user.id == @workout.user_id %>
-  <%=link_to "Edit #{@workout.name}?", workout_path(@workout)%>
+  <%=link_to "Edit #{@workout.name}?", edit_workout_path(@workout)%>
 <% end %>
+
+<div>
+  <p> notes </p>
+  <p> add comments to show workout view </p>
+
+  </div>
