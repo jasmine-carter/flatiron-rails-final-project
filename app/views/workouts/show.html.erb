@@ -1,0 +1,7 @@
+<h1><%= @workout.name%> </h1>
+
+<%=@workout.workout_exercises.each do |we| %>
+<%= we.exercise.name %>
+<%= we.reps %>
+<%= we.sets %>
+<% end %>
