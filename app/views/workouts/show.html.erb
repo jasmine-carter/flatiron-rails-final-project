@@ -1,7 +1,13 @@
-<h1><%= @workout.name%> </h1>
+<h1><%= @workout.name%></h1>
 
-<%=@workout.workout_exercises.each do |we| %>
-<%= we.exercise.name %>
-<%= we.reps %>
-<%= we.sets %>
+<ol>
+  <% @workout.workout_exercises.each do |we| %>
+    <li> Name:  <%= we.exercise.name %>
+         <p> Reps:<%= we.reps %>, </p>
+         <p> Sets: <%= we.sets %>  </p>
+        <% end %>
+      </li>
+</ol>
+<% if current_user.id == @workout.user_id %>
+  <%=link_to "Edit #{@workout.name}?", workout_path(@workout)%>
 <% end %>
