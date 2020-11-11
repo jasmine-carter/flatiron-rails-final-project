@@ -1,5 +1,7 @@
 <h1> Workouts </h1>
-
+<% if flash[:message].present? %>
+<%=flash[:message] %> <br> <br>
+<%end%>
 <ul>
 <% @workouts.each do |w| %>
   <li><%=link_to "#{w.name}", workout_path(w)%></li>
