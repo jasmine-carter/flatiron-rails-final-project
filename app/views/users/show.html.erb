@@ -1,5 +1,11 @@
 <h1> Welcome <%=@user.name%>! </h1>
 <div>
+  <% if flash[:message].present? %>
+    <%= flash[:message] %>
+    <% end %>
+  </div>
+
+<div>
 <% if current_user.exercises.count == 0 %>
   <p> It looks like you haven't created any exercises yet. <%=link_to "Why don't you create one?", new_exercise_path%></p>
   <% else %>
