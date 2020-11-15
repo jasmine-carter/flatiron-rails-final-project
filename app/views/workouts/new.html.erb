@@ -5,7 +5,7 @@ Name: <%=f.text_field :name %> <br>
 Workout Exercises:
 <ol>
 <%=f.fields_for :workout_exercises do |we| %>
-  <li><%= we.collection_select(:exercise_id, Exercise.all, :name, :name,{include_blank: 'Select an Exercise to add to Your Workout'})%>
+  <li><%= we.collection_select(:exercise_id, Exercise.all, :id, :name,{include_blank: 'Select an Exercise to add to Your Workout'})%>
   Rep Count: <%= we.text_field :reps %>
   Set Count: <%= we.text_field :sets %>
 </li>
