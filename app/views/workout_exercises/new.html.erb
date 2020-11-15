@@ -1,1 +1,8 @@
 <h1> Create a New Workout Exercise for <%=@workout.name%></h1>
+
+<%= form_for @workout_exercise do |f| %>
+Select Exercise:<%= f.collection_select(:exercise_id, Exercise.all, :id, :name, {include_blank: 'Select an Exercise'})%> <br>
+  Rep Count: <%=f.text_field :reps %> <br>
+  Set Count: <%= f.text_field :sets %> <br>
+  <%= f.submit "Add to Workout" %>
+  <%end%>

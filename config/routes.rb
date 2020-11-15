@@ -5,9 +5,10 @@ Rails.application.routes.draw do
   resources :users
   resources :exercises
   resources :workouts do
-    resources :workout_exercises
+    resources :workout_exercises, only: [:show, :index, :edit, :new]
   end
 
+  resources :workout_exercises
   get '/signin', to: 'session#new'
   get '/destroy', to: 'session#destroy'
   post '/signin', to: 'session#create'
