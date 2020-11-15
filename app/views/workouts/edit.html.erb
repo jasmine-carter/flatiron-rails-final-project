@@ -21,3 +21,6 @@ Edit Workout Name: <%= f.text_field :name %>
   <br>
 <%=f.submit "Update Workout" %>
 <% end %>
+
+<h4>Or add more Exercises to this Workout</h4>
+<%=link_to "Create a New Workout Exercise", new_workout_workout_exercise_path(@workout.id)%>
