@@ -7,6 +7,7 @@
       <p align="center"><%= link_to(controller: 'users', action: 'new', method: "new"){'Sign Up'} %></p>
       <%if current_user%>
         <p align="center"> <%=link_to "View your Profile", user_path(current_user.id) %></p>
+        <p align="center"><%= link_to(controller: 'session', action: 'destroy', method: "delete"){'Log Out'}%> </p>
       <% end %>
 </div>
 <br>
