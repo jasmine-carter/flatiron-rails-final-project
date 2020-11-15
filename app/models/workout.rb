@@ -12,4 +12,12 @@ class Workout < ApplicationRecord
     User.find_by(id: self.user_id).name
   end
 
+  def workout_categories
+    categories = []
+    self.exercises.each do |e|
+      categories << e.category.name
+    end
+    categories.uniq
+  end
+  
 end
