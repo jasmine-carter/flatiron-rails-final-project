@@ -1,7 +1,12 @@
 class SessionController < ApplicationController
 
   def new
-    @user = User.new
+    if !current_user
+      @user = User.new
+    else
+      flash[:message] = "You're already logged in!"
+      redirect_to current_user
+    end
   end
 
   def create
