@@ -14,7 +14,9 @@
       <% if e.user_id == current_user.id %>
         <li><%=e.name %></li>
         <%end%>
-      <% end %>
+      <% end %> <br>
+      
+      <%=link_to "Create Another Exercise?", new_exercise_path%>
 <% end %>
 </div>
 <div>
