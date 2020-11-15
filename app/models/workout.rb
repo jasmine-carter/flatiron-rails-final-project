@@ -19,5 +19,13 @@ class Workout < ApplicationRecord
     end
     categories.uniq
   end
+
+  def workout_muscle_groups
+    muscle_groups = []
+    self.exercises.each do |e|
+      muscle_groups << e.muscle_group.name
+    end
+    muscle_groups.uniq
+  end
   
 end

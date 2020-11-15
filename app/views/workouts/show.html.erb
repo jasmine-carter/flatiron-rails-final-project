@@ -3,20 +3,24 @@
 <ol>
   <% @workout.workout_exercises.each do |we| %>
     <li> Name:  <%= we.exercise.name %>
-         <p> Reps:<%= we.reps %>, </p>
+         <p> Reps:<%= we.reps %> </p>
          <p> Sets: <%= we.sets %>  </p>
         <% end %>
       </li>
 </ol>
 
-<h4> Muscle Groups Hit </h4>
+<h4> Workout Categories </h4>
 <%@workout.workout_categories.each do |category|%>
   <li><%=category%> </li>
 <%end%>
 
 <br>
-<br>
+<h4> Muscle Groups Hit </h4>
+<%@workout.workout_muscle_groups.each do |group| %>
+  <li><%=group%></li>
+<%end%>
 
+<br>
 <% if current_user.id == @workout.user_id %>
   <%=link_to "Edit #{@workout.name}?", edit_workout_path(@workout)%>
 <% end %>
