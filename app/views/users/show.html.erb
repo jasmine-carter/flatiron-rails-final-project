@@ -15,7 +15,7 @@
         <li><%=e.name %></li>
         <%end%>
       <% end %> <br>
-      
+
       <%=link_to "Create Another Exercise?", new_exercise_path%>
 <% end %>
 </div>
@@ -29,6 +29,8 @@
       <li><%=link_to "#{w.name}", workout_path(w)%></li>
       <%end%>
     <%end%>
+    <br>
+    <%=link_to "Create Another Workout?", new_workout_path%>
   <%end%>
 </div>
 
@@ -36,4 +38,3 @@
 <br>
 <%= link_to "See All Workouts", workouts_path %> <br>
 <%= link_to "See All Exercises", exercises_path%> <br>
-<%= link_to(controller: 'session', action: 'destroy', method: "delete"){'Log Out'}%>

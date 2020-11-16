@@ -10,6 +10,6 @@ Rails.application.routes.draw do
 
   resources :workout_exercises
   get '/signin', to: 'session#new'
-  get '/destroy', to: 'session#destroy'
+  delete '/logout', to: 'session#destroy'
   post '/signin', to: 'session#create'
 end
