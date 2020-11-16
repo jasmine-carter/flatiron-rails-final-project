@@ -6,7 +6,7 @@ class Workout < ApplicationRecord
   has_many :users, through: :comments
   has_many :categories, through: :exercises
   accepts_nested_attributes_for :workout_exercises
-
+  validates :name, presence: true
 
   def workout_user
     User.find_by(id: self.user_id).name
@@ -27,5 +27,5 @@ class Workout < ApplicationRecord
     end
     muscle_groups.uniq
   end
-  
+
 end
