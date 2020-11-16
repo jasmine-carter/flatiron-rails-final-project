@@ -11,8 +11,8 @@ class ExercisesController < ApplicationController
   end
 
   def create
-    binding.pry
     @exercise = Exercise.create(exercise_params)
+    @exercise.name = @exercise.name.titleize
     @exercise.user_id = current_user.id
     @exercise.save
     redirect_to @exercise
