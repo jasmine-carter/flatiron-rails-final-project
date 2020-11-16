@@ -1,4 +1,5 @@
 class WorkoutsController < ApplicationController
+  before_action :require_login
 
   def index
     @workouts = Workout.all
@@ -12,17 +13,20 @@ class WorkoutsController < ApplicationController
   end
 
   def create
-    #create logic that assignes @workout.user_id == current_user.id
     #create logic that only users that are logged in can create workouts
     @workout = Workout.create(workout_params)
     @workout.user_id = current_user.id
-    @workout.save
-    params[:workout][:workout_exercises_attributes].values.each do |we|
-      we = WorkoutExercise.create(exercise_id: we["exercise_id"], workout_id: @workout.id, reps: we["reps"], sets: we["sets"])
-      we.errors
-      we.save
+    if @workout.save
+      params[:workout][:workout_exercises_attributes].values.each do |we|
+        we = WorkoutExercise.create(exercise_id: we["exercise_id"], workout_id: @workout.id, reps: we["reps"], sets: we["sets"])
+        we.errors
+        we.save
+      end
+      redirect_to @workout
+    else
+      flash[:message] = @workout.errors.full_messages
+      redirect_to new_workout_path
     end
-    redirect_to @workout
   end
 
   def show
