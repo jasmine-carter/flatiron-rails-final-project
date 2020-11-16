@@ -1,12 +1,5 @@
 <h1>Create an Exercise</h1>
-<div>
-<% if flash[:message].present? %>
-  <% flash[:message].each do |f| %>
-    <p style="color:red"><%= f %></p>
-    <% end %>
-<% end %>
-<div>
-  
+
 <%=form_for @exercise, controller: 'exercises', action: 'create' do |f| %>
 Name: <%=f.text_field :name %> <br>
 Category:

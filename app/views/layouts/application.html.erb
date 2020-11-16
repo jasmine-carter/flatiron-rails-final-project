@@ -17,6 +17,18 @@
   </div>
 
   <body>
+    <div>
+      <% if flash[:message].present? %>
+      <%  if flash[:message].is_a?(Array) %>
+          <% flash[:message].each do |f| %>
+            <p style="color:red"><%= f %> </p>
+        <%  end %>
+      <%  else %>
+        <p style="color:red"> <%= flash[:message] %> </p>
+        <% end %>
+      <% end %>
+    </div>
+
     <%= yield %>
   </body>
 </html>
