@@ -11,6 +11,7 @@ class ExercisesController < ApplicationController
   end
 
   def create
+    binding.pry
     @exercise = Exercise.create(exercise_params)
     @exercise.user_id = current_user.id
     @exercise.save
@@ -30,7 +31,7 @@ class ExercisesController < ApplicationController
   private
 
   def exercise_params
-    params.require(:exercise).permit(:name, :private, muscle_group_attributes: [:name], category_attributes: [:name])
+    params.require(:exercise).permit(:name, :private, :muscle_group_id, :category_id)
   end
 
 end
