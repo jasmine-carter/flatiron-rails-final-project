@@ -9,7 +9,7 @@
 <% if current_user.exercises.count == 0 %>
   <p> It looks like you haven't created any exercises yet. <%=link_to "Why don't you create one?", new_exercise_path%></p>
   <% else %>
-  <h5>Your Exercises</h5>
+  <h4>Your Exercises</h4>
   <% Exercise.all.each do |e| %>
       <% if e.user_id == current_user.id %>
         <li><%=e.name %></li>
@@ -23,7 +23,7 @@
 <% if current_user.workouts.count == 0 %> <!-- %=create class method to simplify workout.count logic % -->
   <p> You haven't created any workouts yet. <%=link_to "Create one here", new_workout_path%> </p>
 <% else %>
-  <h5> Your Workouts </h5>
+  <h4> Your Workouts </h4>
   <% Workout.all.each do |w| %>
     <% if w.user_id == current_user.id %>
       <li><%=link_to "#{w.name}", workout_path(w)%></li>
@@ -33,8 +33,3 @@
     <%=link_to "Create Another Workout?", new_workout_path%>
   <%end%>
 </div>
-
-<br>
-<br>
-<%= link_to "See All Workouts", workouts_path %> <br>
-<%= link_to "See All Exercises", exercises_path%> <br>
