@@ -15,8 +15,12 @@ class ExercisesController < ApplicationController
     @exercise = Exercise.create(exercise_params)
     @exercise.name = @exercise.name.titleize
     @exercise.user_id = current_user.id
-    @exercise.save
-    redirect_to @exercise
+    if @exercise.save
+      redirect_to @exercise
+    else
+      flash[:message] = @exercise.errors.full_messages
+      redirect_to new_exercise_path
+    end
   end
 
   def show
