@@ -4,7 +4,7 @@ class UsersController < ApplicationController
     if !current_user
       @user = User.new
     else
-      flash[:message] = "You're already logged in!"
+      flash[:message] = "You're already signed in!"
       redirect_to current_user
     end
   end
