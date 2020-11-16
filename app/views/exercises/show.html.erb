@@ -14,3 +14,5 @@ Muscle Group: <%=@exercise.muscle_group.name%> <br>
 <% @exercise.workouts.each do |w| %>
   <li><%= link_to w.name, workout_path(w) %></li>
 <% end %>
+
+<%=link_to "Create An Exercise?", new_exercise_path%>
