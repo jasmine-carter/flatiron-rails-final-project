@@ -6,10 +6,10 @@ class WorkoutExercisesController < ApplicationController
   end
 
   def create
-    #add validations
-    @workout_exercise = WorkoutExercise.create(workout_exercise_params)
-    @workout_exercise.save
-    redirect_to @workout_exercise.workout
+      @workout_exercise = WorkoutExercise.create(workout_exercise_params)
+      @workout_exercise.save
+      redirect_to @workout_exercise.workout
+    end
   end
 
   def delete
