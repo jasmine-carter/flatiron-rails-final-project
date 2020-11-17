@@ -1,0 +1,9 @@
+<h1> Muscle Groups </h1>
+
+<h3> Select a Muscle Group to see Exercises for it! </h3>
+
+<ul>
+<% @muscle_groups.each do |mg| %>
+  <li><%=link_to mg.name, muscle_group_path(mg.id)%></li>
+<% end %>
+</ul>
