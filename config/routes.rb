@@ -8,6 +8,10 @@ Rails.application.routes.draw do
     resources :workout_exercises, only: [:show, :index, :edit, :new]
   end
 
+  resources :muscle_groups, only: [:show, :index] do
+    resources :exercises, only: [:show, :index, :new]
+  end
+
   get '/auth/facebook/callback' => 'session#create' #correct session naming convention to pluralize
 
   resources :workout_exercises
