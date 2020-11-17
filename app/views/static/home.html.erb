@@ -3,10 +3,12 @@
     <img style='width: 600px' src="https://t3.ftcdn.net/jpg/03/56/86/00/360_F_356860018_2d09E8amlSjh1HPdsNWcjkbBGRqGzuhs.jpg"
     </div>
     <h1 align="center">Welcome to Swolier Than Thou!</h1>
-    <p align="center"> <%= link_to(controller: 'session', action: 'new', method: "new"){'Log In'}%></p>
-      <p align="center"><%= link_to(controller: 'users', action: 'new', method: "new"){'Sign Up'} %></p>
-      <%if current_user%>
-        <p align="center"> <%=link_to "View your Profile", user_path(current_user.id) %></p>
+      <% if !current_user %>
+          <p align="center"> <%= link_to(controller: 'session', action: 'new', method: "new"){'Log In'}%></p>
+          <p align="center"> <%= link_to('Log in with Facebook!', '/auth/facebook') %></p>
+          <p align="center"><%= link_to(controller: 'users', action: 'new', method: "new"){'Sign Up'} %></p>
+        <%else%>
+          <p align="center"> <%=link_to "View your Profile", user_path(current_user.id) %></p>
       <% end %>
 </div>
 <br>
