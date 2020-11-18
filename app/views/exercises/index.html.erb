@@ -1,4 +1,8 @@
-<h1>All Exercises</h1>
+<% if params.has_key?("muscle_group_id") %>
+  <h1>All Exercises for <%=@muscle_group.name%></h1>
+<%else %>
+  <h1>All Exercises</h1>
+<%end%>
 
 <ul>
 <% @exercises.each do |exercise| %>
