@@ -10,7 +10,7 @@
   <p> It looks like you haven't created any exercises yet. <%=link_to "Why don't you create one?", new_exercise_path%></p>
   <% else %>
   <h4>Your Exercises</h4>
-  <% Exercise.all.each do |e| %>
+  <% Exercise.all.alpha_order.each do |e| %>
       <% if e.user_id == current_user.id %>
         <li><%=e.name %></li>
         <%end%>

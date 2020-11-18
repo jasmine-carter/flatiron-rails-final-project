@@ -7,4 +7,8 @@ class Exercise < ApplicationRecord
   accepts_nested_attributes_for :category, :muscle_group
   validates :name, uniqueness: true, presence: true
 
+
+  def self.alpha_order
+    order(name: :asc)
+  end
 end

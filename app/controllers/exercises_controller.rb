@@ -5,7 +5,7 @@ class ExercisesController < ApplicationController
   if @muscle_group = MuscleGroup.find_by(id: params[:muscle_group_id])
       @exercises = @muscle_group.exercises
     else
-      @exercises = Exercise.all
+      @exercises = Exercise.all.alpha_order
     end
   end
 
