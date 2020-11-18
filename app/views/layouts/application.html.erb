@@ -10,11 +10,13 @@
   </head>
 
   <div>
-    <!--link_to "Your Profile", user_path(current_user)%>-->
-    <%= link_to "Workouts", workouts_path %>
-    <%= link_to "Exercises", exercises_path %>
-    <%= link_to "Muscle Groups", muscle_groups_path %>
-    <%= link_to "Log Out", logout_path, method: :delete %>
+    <%if current_user%>
+      <%= link_to "Your Profile", user_path(current_user)%>
+      <%= link_to "Workouts", workouts_path %>
+      <%= link_to "Exercises", exercises_path %>
+      <%= link_to "Muscle Groups", muscle_groups_path %>
+      <%= link_to "Log Out", logout_path, method: :delete %>
+    <% end %>
 
   </div>
 
