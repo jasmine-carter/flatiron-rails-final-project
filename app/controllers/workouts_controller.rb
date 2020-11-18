@@ -41,6 +41,15 @@ class WorkoutsController < ApplicationController
     end
   end
 
+  def update
+    @workout = Workout.find_by(id: params[:id])
+    if @workout.update(workout_params)
+      redirect_to workout_path(@workout)
+    else
+      flash[:message] = @workout.errors.full_messages
+    end
+  end
+
   def delete
   end
 
