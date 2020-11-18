@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     resources :workout_exercises, only: [:show, :index, :edit, :new]
   end
 
-  resources :muscle_groups, only: [:show, :index] do
+  resources :muscle_groups, only: [:index] do
     resources :exercises, only: [:show, :index, :new]
   end
 
