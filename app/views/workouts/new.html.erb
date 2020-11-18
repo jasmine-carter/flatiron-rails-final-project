@@ -6,8 +6,8 @@ Workout Exercises:
 <ol>
 <%=f.fields_for :workout_exercises do |we| %>
   <li><%= we.collection_select(:exercise_id, Exercise.all, :id, :name,{include_blank: 'Select an Exercise to add to Your Workout'})%>
-  Rep Count: <%= we.text_field :reps %>
-  Set Count: <%= we.text_field :sets %>
+  Rep Count: <%= we.number_field :reps, min: 1, max:100 %>
+  Set Count: <%= we.number_field :sets, min: 1, max:100%>
 </li>
   <br>
 <% end %>

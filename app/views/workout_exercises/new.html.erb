@@ -3,7 +3,7 @@
 <%= form_for @workout_exercise do |f| %>
 <%= f.hidden_field :workout_id %>
 Select Exercise:<%= f.collection_select(:exercise_id, Exercise.all, :id, :name, {include_blank: 'Select an Exercise'})%> <br>
-  Rep Count: <%=f.text_field :reps %> <br>
-  Set Count: <%= f.text_field :sets %> <br>
+  Rep Count: <%=f.number_field :reps, min: 1, max:100 %><br>
+  Set Count: <%= f.number_field :sets, min: 1, max:100%> <br>
   <%= f.submit "Add to Workout" %>
   <%end%>
