@@ -2,8 +2,7 @@ class ExercisesController < ApplicationController
   before_action :require_login
 
   def index
-    if params.has_key?("muscle_group_id")
-      @muscle_group = MuscleGroup.find_by(id: params[:muscle_group_id])
+  if @muscle_group = MuscleGroup.find_by(id: params[:muscle_group_id])
       @exercises = @muscle_group.exercises
     else
       @exercises = Exercise.all
