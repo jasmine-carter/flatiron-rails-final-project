@@ -4,6 +4,6 @@
 
 <ul>
 <% @muscle_groups.each do |mg| %>
-  <li><%=link_to mg.name, muscle_group_path(mg.id)%></li>
+  <li><%=link_to mg.name, muscle_group_exercises_path(mg.id)%></li>
 <% end %>
 </ul>
