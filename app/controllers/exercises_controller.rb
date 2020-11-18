@@ -23,7 +23,7 @@ class ExercisesController < ApplicationController
       redirect_to @exercise
     else
       flash[:message] = @exercise.errors.full_messages
-      redirect_to new_exercise_path
+      render new_exercise_path
     end
   end
 
