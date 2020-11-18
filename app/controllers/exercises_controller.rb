@@ -22,7 +22,6 @@ class ExercisesController < ApplicationController
     if @exercise.save
       redirect_to @exercise
     else
-      flash[:message] = @exercise.errors.full_messages
       render new_exercise_path
     end
   end

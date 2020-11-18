@@ -24,7 +24,6 @@ class WorkoutsController < ApplicationController
       end
       redirect_to @workout
     else
-      flash[:message] = @workout.errors.full_messages
       render new_workout_path
     end
   end
