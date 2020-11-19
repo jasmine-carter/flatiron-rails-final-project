@@ -10,7 +10,6 @@ class WorkoutExercisesController < ApplicationController
       @workout_exercise.save
       redirect_to @workout_exercise.workout
     end
-  end
 
   def delete
   end
