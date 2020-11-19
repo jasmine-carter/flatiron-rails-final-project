@@ -12,7 +12,6 @@ class WorkoutsController < ApplicationController
   end
 
   def create
-    binding.pry
     @workout = Workout.create(workout_params)
     @workout.user_id = current_user.id
     @workout.save
