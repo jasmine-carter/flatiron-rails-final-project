@@ -2,7 +2,7 @@ class WorkoutsController < ApplicationController
   before_action :require_login
 
   def index
-    @workouts = Workout.all
+    @workouts = Workout.all.alpha_order
   end
 
   def new
@@ -16,6 +16,7 @@ class WorkoutsController < ApplicationController
     #create logic that only users that are logged in can create workouts
     @workout = Workout.create(workout_params)
     @workout.user_id = current_user.id
+    binding.pry
     if @workout.save
       params[:workout][:workout_exercises_attributes].values.each do |we|
         we = WorkoutExercise.create(exercise_id: we["exercise_id"], workout_id: @workout.id, reps: we["reps"], sets: we["sets"])

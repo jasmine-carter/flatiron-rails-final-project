@@ -12,6 +12,10 @@ class Workout < ApplicationRecord
     User.find_by(id: self.user_id).name
   end
 
+  def self.alpha_order
+    order(name: :asc)
+  end
+  
   def workout_categories
     categories = []
     self.exercises.each do |e|

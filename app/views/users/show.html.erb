@@ -24,7 +24,7 @@
   <p> You haven't created any workouts yet. <%=link_to "Create one here", new_workout_path%> </p>
 <% else %>
   <h4> Your Workouts </h4>
-  <% Workout.all.each do |w| %>
+  <% Workout.all.alpha_order.each do |w| %>
     <% if w.user_id == current_user.id %>
       <li><%=link_to "#{w.name}", workout_path(w)%></li>
       <%end%>
