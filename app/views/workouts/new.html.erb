@@ -1,5 +1,6 @@
 <h1> Create a Workout </h1>
 <%= render partial: 'layouts/errors', locals: {object: @workout} %>
+<%= render partial: 'layouts/errors', locals: {object: @we} %>
 
 <%= form_for @workout, controller: 'workouts', action: 'create' do |f| %>
 Name: <%=f.text_field :name %> <br>
