@@ -25,6 +25,10 @@ class Workout < ApplicationRecord
     categories.uniq
   end
 
+  def stub_workout_exercises
+    3.times{self.workout_exercises.build}
+  end
+
   def workout_muscle_groups
     muscle_groups = []
     self.exercises.each do |e|
