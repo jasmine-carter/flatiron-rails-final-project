@@ -10,24 +10,25 @@ class WorkoutsController < ApplicationController
     @workout.workout_exercises.build
     @workout.workout_exercises.build
     @workout.workout_exercises.build
+    @we = @workout.workout_exercises.build
   end
 
   def create
-    #create logic that only users that are logged in can create workouts
     @workout = Workout.create(workout_params)
     @workout.user_id = current_user.id
-    binding.pry
-    if @workout.save
-      params[:workout][:workout_exercises_attributes].values.each do |we|
-        we = WorkoutExercise.create(exercise_id: we["exercise_id"], workout_id: @workout.id, reps: we["reps"], sets: we["sets"])
-        we.errors
-        we.save
-      end
-      redirect_to @workout
-    else
-      render new_workout_path
+    @workout.save
+    @workout_exercises = params[:workout][:workout_exercises_attributes].values.each do |we|
+        @we = WorkoutExercise.create(exercise_id: we["exercise_id"], workout_id: @workout.id, reps: we["reps"], sets: we["sets"])
+          if !@we.save
+            binding.pry
+            @workout.delete
+            @workout.workout_exercises.build
+            @workout.workout_exercises.build
+            @workout.workout_exercises.build
+            render new_workout_path and return
+          end
+        end
     end
-  end
 
   def show
     @workout = Workout.find_by(id: params[:id])
@@ -51,6 +52,7 @@ class WorkoutsController < ApplicationController
   end
 
   def delete
+
   end
 
   private
