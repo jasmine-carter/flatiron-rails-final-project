@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :users, only: [:swoliest, :show]
   resources :exercises
   resources :workouts do
-    resources :workout_exercises, only: [:show, :index, :edit, :new]
+    resources :workout_exercises, only: [:show, :index, :edit, :new, :delete]
   end
 
   resources :muscle_groups, only: [:index] do
