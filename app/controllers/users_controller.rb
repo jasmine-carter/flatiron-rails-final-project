@@ -23,6 +23,10 @@ class UsersController < ApplicationController
   def edit
   end
 
+  def swoliest
+    @user = User.swoliest
+  end
+
   def show
     if !current_user
       redirect_to controller: 'users', action: 'new' #if user is not logged in, redirect to sign up
