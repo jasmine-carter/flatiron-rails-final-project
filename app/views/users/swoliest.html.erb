@@ -1,0 +1,7 @@
+<% if @user == current_user %>
+    <h1>You Are the Swoliest!</h1>
+    <h4>You have created <%=@user.workouts.count%> workouts! </h4>
+  <%else %>
+    <h1><%=@user.name%> is Swolier than Thou! </h1>
+    <h4> They have created <%=@user.workouts.count%> workouts! </h4>
+  <%end%>
