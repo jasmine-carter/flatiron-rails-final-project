@@ -5,7 +5,6 @@ Muscle Group: <%=@exercise.muscle_group.name%> <br>
 
 <% if current_user.id == @exercise.user_id%>
   <p>This exercise was created by you! </p>
-  <%= link_to "Edit this Exercise", edit_exercise_path(@exercise.id) %>
 <% else %>
   <p>This exercise was created by <%=@exercise.user.name%> </p>
 
