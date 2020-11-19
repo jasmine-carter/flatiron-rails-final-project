@@ -5,9 +5,8 @@ class Workout < ApplicationRecord
   has_many :comments
   has_many :users, through: :comments
   has_many :categories, through: :exercises
-  accepts_nested_attributes_for :workout_exercises
+  accepts_nested_attributes_for :workout_exercises, allow_destroy: true
   validates :name, presence: true
-  validates :workout_exercises, presence: true
 
   def workout_user
     User.find_by(id: self.user_id).name

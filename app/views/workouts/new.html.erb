@@ -3,13 +3,13 @@
 <%= render partial: 'layouts/errors', locals: {object: @we} %>
 
 <%= form_for @workout, controller: 'workouts', action: 'create' do |f| %>
-Name: <%=f.text_field :name %> <br>
+Name: <%=f.text_field :name, required: true %> <br>
 Workout Exercises:
 <ol>
 <%=f.fields_for :workout_exercises do |we| %>
-  <li><%= we.collection_select(:exercise_id, Exercise.all, :id, :name,{include_blank: 'Select an Exercise to add to Your Workout'})%>
-  Rep Count: <%= we.number_field :reps, min: 1, max:100 %>
-  Set Count: <%= we.number_field :sets, min: 1, max:100%>
+  <li><%= we.collection_select(:exercise_id, Exercise.all, :id, :name,{include_blank: 'Select an Exercise to add to Your Workout'}, required: true)%>
+  Rep Count: <%= we.number_field :reps, min: 1, max:100, required: true %>
+  Set Count: <%= we.number_field :sets, min: 1, max:100, required: true%>
 </li>
   <br>
 <% end %>
