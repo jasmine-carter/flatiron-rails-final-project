@@ -12,7 +12,7 @@
   <h4>Your Exercises</h4>
   <% Exercise.all.alpha_order.each do |e| %>
       <% if e.user_id == current_user.id %>
-        <li><%=e.name %></li>
+        <li><%=link_to "#{e.name}", exercise_path(e) %></li>
         <%end%>
       <% end %> <br>
 
