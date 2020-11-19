@@ -7,6 +7,7 @@ class Workout < ApplicationRecord
   has_many :categories, through: :exercises
   accepts_nested_attributes_for :workout_exercises
   validates :name, presence: true
+  validates :workout_exercises, presence: true
 
   def workout_user
     User.find_by(id: self.user_id).name
@@ -15,7 +16,7 @@ class Workout < ApplicationRecord
   def self.alpha_order
     order(name: :asc)
   end
-  
+
   def workout_categories
     categories = []
     self.exercises.each do |e|
