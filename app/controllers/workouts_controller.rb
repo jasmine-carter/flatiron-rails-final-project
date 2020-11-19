@@ -7,9 +7,7 @@ class WorkoutsController < ApplicationController
 
   def new
     @workout = Workout.new
-    @workout.workout_exercises.build
-    @workout.workout_exercises.build
-    @workout.workout_exercises.build
+    @workout.stub_workout_exercises
     @we = @workout.workout_exercises.build
   end
 
@@ -20,11 +18,8 @@ class WorkoutsController < ApplicationController
     @workout_exercises = params[:workout][:workout_exercises_attributes].values.each do |we|
         @we = WorkoutExercise.create(exercise_id: we["exercise_id"], workout_id: @workout.id, reps: we["reps"], sets: we["sets"])
           if !@we.save
-            binding.pry
             @workout.delete
-            @workout.workout_exercises.build
-            @workout.workout_exercises.build
-            @workout.workout_exercises.build
+            @workout.stub_workout_exercises
             render new_workout_path and return
           end
         end
