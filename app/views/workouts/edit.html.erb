@@ -12,10 +12,13 @@ Edit Workout Name: <%= f.text_field :name %>
 <br>
 <h4> Edit the Exercises in this Workout? </h4>
   <%=f.fields_for :workout_exercises do |we| %>
-    <li>Change Exercise: <%= we.collection_select(:exercise_id, Exercise.all, :id, :name)%>
+    <li>
+      <%= we.text_field :id%>
+    Change Exercise: <%= we.collection_select(:exercise_id, Exercise.all, :id, :name)%>
     Edit Rep Count: <%= we.number_field :reps, min: 1, max:100%>
     Edit Set Count: <%= we.number_field :sets, min: 1, max:100%>
-    <%= "link_to delete workout excerise?" %>
+    Delete: <%= we.check_box :_destroy %>
+    <%=link_to "Delete this Workout Exercise?", workout_exercise_path(we.object.id), method: :delete, :confirm => "You Sure?" %>
     <% end %>
   </li>
   <br>
