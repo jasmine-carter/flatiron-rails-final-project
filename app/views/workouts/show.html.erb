@@ -1,5 +1,6 @@
 <h1><%= @workout.name%></h1>
 
+<h4>Workout Exercises</h4>
 <ol>
   <% @workout.workout_exercises.each do |we| %>
     <li> Name:  <%= we.exercise.name %>
@@ -20,6 +21,11 @@
 <h4> Muscle Groups Hit </h4>
 <% @workout.workout_muscle_groups.each do |group| %>
   <li><%=link_to "#{group.name}", muscle_group_exercises_path(group.id)%></li>
+<%end%>
+<br>
+<h4> Exercises </h4>
+<% @workout.exercises.each do |group| %>
+  <li><%=link_to "#{group.name}", exercise_path(group.id)%></li>
 <%end%>
 
 <br>
