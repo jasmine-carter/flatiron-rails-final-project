@@ -12,6 +12,7 @@ class WorkoutsController < ApplicationController
   end
 
   def create
+    binding.pry
     @workout = Workout.create(workout_params)
     @workout.user_id = current_user.id
     @workout.save
@@ -21,6 +22,8 @@ class WorkoutsController < ApplicationController
             @workout.delete
             @workout.stub_workout_exercises
             render new_workout_path and return
+          else
+            redirect_to @workout and return
           end
         end
     end
@@ -38,6 +41,7 @@ class WorkoutsController < ApplicationController
   end
 
   def update
+    binding.pry
     @workout = Workout.find_by(id: params[:id])
     if @workout.update(workout_params)
       redirect_to workout_path(@workout)
@@ -61,7 +65,7 @@ class WorkoutsController < ApplicationController
   private
 
   def workout_params
-    params.require(:workout).permit(:name, :user_id, workout_exercise_attributes: [:reps, :sets, :exercise_id])
+    params.require(:workout).permit(:name, :user_id, workout_exercises_attributes: [:id, :_destroy, :reps, :sets, :exercise_id])
   end
 
 end
