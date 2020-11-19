@@ -3,8 +3,10 @@
 <ol>
   <% @workout.workout_exercises.each do |we| %>
     <li> Name:  <%= we.exercise.name %>
-         <p> Reps:<%= we.reps %> </p>
-         <p> Sets: <%= we.sets %>  </p>
+      <ul>
+         <li>Reps:<%= we.reps %></li>
+          <li>Sets: <%= we.sets %> </li>
+          </ul>
         <% end %>
       </li>
 </ol>
