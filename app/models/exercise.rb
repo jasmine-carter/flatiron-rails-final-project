@@ -11,4 +11,5 @@ class Exercise < ApplicationRecord
   def self.alpha_order
     order(name: :asc)
   end
+
 end
