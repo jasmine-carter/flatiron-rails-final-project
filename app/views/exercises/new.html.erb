@@ -10,6 +10,5 @@ Category:
 MuscleGroup:
   <%= f.collection_select(:muscle_group_id, MuscleGroup.all, :id, :name, {include_blank: 'Select a MuscleGroup'}) %>
   <br>
-Share With Others?: <%= f.check_box :private %> <br>
 <%= f.submit "Create Exercise" %>
 <% end %>
