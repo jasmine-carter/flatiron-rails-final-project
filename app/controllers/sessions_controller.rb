@@ -37,7 +37,8 @@ class SessionsController < ApplicationController
   def show
   end
 
-  def destroy
+  def logout #question during session, is it better to define the action as delete and define the route like delete '/logout', to: 'sessions#destroy'
+    #or to set routes under collection routes and change the action name to logout? 
     session.clear
     redirect_to root_path
   end
