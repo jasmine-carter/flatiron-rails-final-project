@@ -4,7 +4,7 @@
     </div>
     <h1 align="center">Welcome to Swolier Than Thou!</h1>
       <% if !current_user %>
-          <p align="center"> <%= link_to(controller: 'session', action: 'new', method: "new"){'Log In'}%></p>
+          <p align="center"> <%= link_to(controller: 'sessions', action: 'new', method: "new"){'Log In'}%></p>
           <p align="center"> <%= link_to('Log in with Facebook!', '/auth/facebook') %></p>
           <p align="center"><%= link_to(controller: 'users', action: 'new', method: "new"){'Sign Up'} %></p>
         <%else%>
