@@ -3,23 +3,22 @@ Rails.application.routes.draw do
 
   root 'static#home'
   get '/auth/facebook/callback' => 'sessions#create' #correct session naming convention to pluralize
-  #get '/signin', to: 'sessions#new'
-  #post '/signin', to: 'sessions#create'
-  #delete '/logout', to: 'sessions#destroy'
-
-  resources :sessions do
-    collection do
-      get :signin
-      post :signin
-      delete :logout
-    end
-  end
+  get '/signin', to: 'sessions#new'
+  post '/signin', to: 'sessions#create'
+  delete '/logout', to: 'sessions#destroy'
+  get '/signup', to: 'users#new'
+  post '/signup', to: 'users#create'
+  #resources :sessions do
+    #collection do
+      #get :signin
+      #post :signin
+      #delete :logout
+    #end
+  #end
 
   resources :users do
     collection do
       get :swoliest
-      get :signup
-      post :signup
     end
   end
 

@@ -1,7 +1,7 @@
 <h1> Sign Up! </h1>
 <%= render partial: 'layouts/errors', locals: {object: @user} %>
 
-<%= form_for @user, url: signup_users_path, method: :post do |f| %>
+<%= form_for @user, url: signup_path, method: :post do |f| %>
 
 Name <%= f.text_field :name %> <br>
 Email <%= f.text_field :email %> <br>
