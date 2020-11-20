@@ -11,8 +11,8 @@
 
   <div>
     <%if current_user%>
-      <%= link_to "Your Profile", user_path(current_user)%>
       <%= link_to "Home", root_path %>
+      <%= link_to "Your Profile", user_path(current_user)%>
       <%= link_to "Workouts", workouts_path %>
       <%= link_to "Exercises", exercises_path %>
       <%= link_to "Muscle Groups", muscle_groups_path %>
