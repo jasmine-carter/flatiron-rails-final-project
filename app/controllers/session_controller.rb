@@ -27,8 +27,9 @@ class SessionController < ApplicationController
         session[:user_id] = @user.id
         redirect_to @user
       else
+        binding.pry
         flash[:message] = "User Email or Password Invalid"
-        render 'new'
+        redirect_to signin_path
       end
       end
     end
