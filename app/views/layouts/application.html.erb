@@ -9,18 +9,7 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <div>
-    <%if current_user%>
-      <%= link_to "Home", root_path %>
-      <%= link_to "Your Profile", user_path(current_user)%>
-      <%= link_to "Workouts", workouts_path %>
-      <%= link_to "Exercises", exercises_path %>
-      <%= link_to "Muscle Groups", muscle_groups_path %>
-      <%= link_to "Who is Swoliest?", swoliest_users_path %>
-      <%= link_to "Log Out", logout_sessions_path, method: :delete %>
-    <% end %>
-
-  </div>
+  <div><%= render_nav_bar %></div>
 
   <body>
 
