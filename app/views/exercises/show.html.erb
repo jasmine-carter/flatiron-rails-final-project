@@ -9,9 +9,11 @@ Muscle Group: <%=@exercise.muscle_group.name%> <br>
   <p>This exercise was created by <%=@exercise.user.name%> </p>
 
 <% end %>
-<h2><%=@exercise.workouts.count%> Workouts Feature this Exercise </h2>
-<% @exercise.workouts.each do |w| %>
+<h2><%=@exercise.distinct_workouts.count%> Workouts Feature this Exercise </h2>
+<% @exercise.distinct_workouts.each do |w| %>
   <li><%= link_to w.name, workout_path(w) %></li>
 <% end %>
+
+<br>
 
 <%=link_to "Create An Exercise?", new_exercise_path%>

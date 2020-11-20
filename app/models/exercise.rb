@@ -12,4 +12,12 @@ class Exercise < ApplicationRecord
     order(name: :asc)
   end
 
+
+  def distinct_workouts
+    distinct_workouts = []
+    self.workouts.each do |w|
+      distinct_workouts << w
+    end
+    distinct_workouts.uniq
+  end
 end
