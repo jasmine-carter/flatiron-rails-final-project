@@ -24,7 +24,7 @@
 <%end%>
 <br>
 <h4> Exercises </h4>
-<% @workout.exercises.each do |group| %>
+<% @workout.distinct_exercises.each do |group| %>
   <li><%=link_to "#{group.name}", exercise_path(group.id)%></li>
 <%end%>
 

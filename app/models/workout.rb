@@ -40,4 +40,12 @@ class Workout < ApplicationRecord
     self.name = self.name.titleize
   end
 
+  def distinct_exercises
+    distinct_exercises = []
+    self.exercises.each do |e|
+      distinct_exercises << e
+    end
+    distinct_exercises.uniq
+  end
+
 end
