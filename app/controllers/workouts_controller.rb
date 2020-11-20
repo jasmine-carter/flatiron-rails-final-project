@@ -40,9 +40,9 @@ class WorkoutsController < ApplicationController
   end
 
   def update
-    binding.pry
     @workout = Workout.find_by(id: params[:id])
     if @workout.update(workout_params)
+      flash[:message] = "Workout exercise successfully updated"
       redirect_to workout_path(@workout)
     else
       flash[:message] = @workout.errors.full_messages
