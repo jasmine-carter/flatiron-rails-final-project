@@ -36,4 +36,8 @@ class Workout < ApplicationRecord
     muscle_groups.uniq
   end
 
+  def titleize_name
+    self.name = self.name.titleize
+  end
+
 end

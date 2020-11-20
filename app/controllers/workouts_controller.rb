@@ -14,6 +14,7 @@ class WorkoutsController < ApplicationController
   def create
     @workout = Workout.create(workout_params)
     @workout.user_id = current_user.id
+    @workout.titleize_name
     @workout.save
     @workout_exercises = params[:workout][:workout_exercises_attributes].values.each do |we|
         @we = WorkoutExercise.create(exercise_id: we["exercise_id"], workout_id: @workout.id, reps: we["reps"], sets: we["sets"])
