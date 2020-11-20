@@ -6,4 +6,5 @@
   <%else %>
     <h1><%=@user.name%> is Swolier than Thou! </h1>
     <h4> They have created <%=@user.workouts.count%> workouts! </h4>
+    <p> You have created <%=current_user.workouts.count%> workouts. </p>
   <%end%>
