@@ -1,0 +1,13 @@
+<%=form_for @exercise, controller: 'exercises', action: 'create' do |f| %>
+Name: <%=f.text_field :name %> <br>
+Category:
+  <%= f.collection_select(:category_id, Category.all, :id, :name, {include_blank: 'Select a Category'})%>
+<br>
+
+
+MuscleGroup:
+  <%=@muscle_group.name%>
+  <%= f.hidden_field :muscle_group_id %>
+  <br>
+<%= f.submit "Create Exercise" %>
+  <% end%>

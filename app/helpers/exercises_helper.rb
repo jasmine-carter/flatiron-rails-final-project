@@ -9,4 +9,14 @@ module ExercisesHelper
     end
   end
 
+
+  def render_muscle_group_selector
+    if params[:muscle_group_id]
+      render partial: 'layouts/new_muscle_group_exercise'
+    else
+      render partial: 'layouts/new_exercise'
+    end
+  end
+
+
 end
