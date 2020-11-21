@@ -12,7 +12,11 @@ class ExercisesController < ApplicationController
   def new
     @exercise = Exercise.new
     @exercise.build_category
-    @exercise.build_muscle_group
+    if @muscle_group = MuscleGroup.find_by(id: params[:muscle_group_id])
+      @exercise.muscle_group = @muscle_group
+    else
+      @exercise.build_muscle_group
+    end
   end
 
   def create
